@@ -7,8 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MilanorToolApplication {
 
 	public static void main(String[] args) {
-		//SpringApplication.run(MilanorToolApplication.class, args);
-		System.out.println("hello java");
+		//System.out.println("hello java");
+		SpringApplication.run(MilanorToolApplication.class, args);
+
 	}
 
 }
