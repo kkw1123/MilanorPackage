@@ -24,4 +24,9 @@ public class ManhwaBoardController {
 		model.addAttribute("boards", boards);
 		return "manhwa/list";
 	}
+	
+	@GetMapping("/form")
+	public String form(Model model) {
+		return "manhwa/form";
+	}
 }

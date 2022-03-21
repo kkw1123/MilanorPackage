@@ -2,6 +2,73 @@
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
 
-main > .container {
-    padding: 60px 15px 0;
-  }
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+html, body > .maincontainer {
+  padding: 0px 60px;
+  background: rgba(10, 13, 24, 0.753);
+}
+
+.container > .manhwacontents { 
+  width:360px; 
+  height:100%;
+  margin-top: 100px;
+  margin-left: 15px;
+  text-align: center;
+  float:left;
+}
+.container > .manhwacontents > .font {
+  width:80px; 
+  height:40px;
+  margin-left:140px;
+}
+.container > .manhwacontents > .content { 
+  width:160px; 
+  height:190px;
+  margin:10px 10px 10px 10px;
+  border: 1px solid red; 
+  float:left;
+}
+
+.container > .videocontents { 
+  width:360px; 
+  height:100%;
+  margin-top: 100px;
+  text-align: center;
+  float:left;
+}
+.container > .videocontents > .font {
+  width:80px; 
+  height:40px;
+  margin-left:140px;
+}
+.container > .videocontents > .content { 
+  width:160px; 
+  height:190px;
+  margin:10px 10px 10px 10px;
+  border: 1px solid red; 
+  float:left;
+}
+
+.container > .gamecontents { 
+  width:360px; 
+  height:100%;
+  margin-top: 100px;
+  text-align: center;
+  float:left;
+}
+.container > .gamecontents > .font {
+  width:80px; 
+  height:40px;
+  margin-left:140px;
+}
+.container > .gamecontents > .content { 
+  width:160px; 
+  height:190px;
+  margin:10px 10px 10px 10px;
+  border: 1px solid red; 
+  float:left;
+}
