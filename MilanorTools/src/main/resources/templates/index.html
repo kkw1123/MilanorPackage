@@ -2,51 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
   <head th:replace="fragments/common :: head('메인')" />
-  
+
   <body>
     <!-- 상단태그 -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" th:replace="fragments/common :: menu(home)" />
-    
+      <!-- 메인화면 -->
       <div class="container">
-        <div class="manhwacontents">
+        <!-- 만화 -->
+        <div class="manhwa">
           <h2 class="font">만화</h2>
-          <div class="content">
-            <h2>확인</h2>
-          </div>
-          <div class="content">
-            <h2>확인</h2>
-          </div>
-          <div class="content">
-            <h2>확인</h2>
-          </div>
-        </div>
-        <div class="videocontents">
-          <h2 class="font">영상</h2>
-          <div class="content">
-            <h2>확인</h2>
-          </div>
-          <div class="content">
-            <h2>확인</h2>
-          </div>
-          <div class="content">
-            <h2>확인</h2>
-          </div>
-        </div>
-        <div class="gamecontents">
-          <h2 class="font">게임</h2>
-          <div class="content">
-            <h2>확인</h2>
-          </div>
-          <div class="content">
-            <h2>확인</h2>
-          </div>
-          <div class="content">
-            <h2>확인</h2>
-          </div>
-        </div>
-      </div>
-    </div>
+          <div class="contents" th:each="manhwa : ${manhwa}">
+            <img class="image_thumbnail" th:src="${manhwa.title_image}">
+              
+              <div class="content">
+                  <div class="border">
+                    <p class="titleCss" th:text="${manhwa.title}"></p>
+                  </div>
+              </div>
 
+          </div>
+        </div>
+       
+
+
+    <!-- 스크립트 뭉치 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

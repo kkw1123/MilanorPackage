@@ -11,7 +11,7 @@
     <main class="flex-shrink-0">
       <div class="container">
         <h2 class="mt-5">만화 게시판</h2>
-        <div>총 건수 : <span th:text="${#lists.size(boards)}"></span></div>
+        <div>총 건수 : <span th:text="${#lists.size(manhwa)}"></span></div>
       <!-- 내용 테이블 시작 -->
         <table class="table table-dark table-striped">
           <thead>
@@ -22,9 +22,9 @@
             </tr>
           </thead>
           <tbody>
-            <tr th:each="board : ${boards}">
-              <td th:text="${board.id}"></td>
-              <td th:text="${board.title}"></td>
+            <tr th:each="manhwa : ${manhwa}">
+              <td th:text="${manhwa.id}"></td>
+              <td th:text="${manhwa.title}"></td>
               <td>테스트유저</td>
             </tr>
           </tbody>

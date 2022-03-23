@@ -12,60 +12,84 @@ html, body > .maincontainer {
   background: rgba(10, 13, 24, 0.753);
 }
 
-.container > .manhwacontents { 
-  width:360px; 
-  height:100%;
+.container > .manhwa { 
   margin-top: 100px;
-  margin-left: 15px;
+  margin-left: 30px;
   text-align: center;
   float:left;
 }
-.container > .manhwacontents > .font {
+.container > .manhwa > .font {
   width:80px; 
   height:40px;
   margin-left:140px;
 }
-.container > .manhwacontents > .content { 
+.container > .manhwa > .contents { 
+  width:160px; 
+  height:190px;
+  margin:15px 35px 15px 15px;
+  border: 1px solid black; 
+  float:left;
+}
+.container > .manhwa > .contents > .image_thumbnail { 
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.container > .manhwa > .contents > .content {
+  position: absolute;
+  margin-left: -1px;
+  margin-top: -39px;
+}
+.container > .manhwa > .contents > .content > .border {
+  height: 40px;
+  width: 160px;
+  background-color: black;
+  opacity: 0.8;
+}
+.container > .manhwa > .contents > .content > .border > .titleCss {
+  color: whitesmoke;
+  margin-top: 7px;
+  padding-left: 8px;
+  padding-right: 8px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.container > .video { 
+  width:360px; 
+  height:100%;
+  margin-top: 100px;
+  text-align: center;
+  float:left;
+}
+.container > .video > .font {
+  width:80px; 
+  height:40px;
+  margin-left:140px;
+}
+.container > .video > .contents { 
   width:160px; 
   height:190px;
   margin:10px 10px 10px 10px;
   border: 1px solid red; 
   float:left;
 }
-
-.container > .videocontents { 
+.container > .game { 
   width:360px; 
   height:100%;
   margin-top: 100px;
   text-align: center;
   float:left;
 }
-.container > .videocontents > .font {
+.container > .game > .font {
   width:80px; 
   height:40px;
   margin-left:140px;
 }
-.container > .videocontents > .content { 
-  width:160px; 
-  height:190px;
-  margin:10px 10px 10px 10px;
-  border: 1px solid red; 
-  float:left;
-}
-
-.container > .gamecontents { 
-  width:360px; 
-  height:100%;
-  margin-top: 100px;
-  text-align: center;
-  float:left;
-}
-.container > .gamecontents > .font {
-  width:80px; 
-  height:40px;
-  margin-left:140px;
-}
-.container > .gamecontents > .content { 
+.container > .game > .contents { 
   width:160px; 
   height:190px;
   margin:10px 10px 10px 10px;

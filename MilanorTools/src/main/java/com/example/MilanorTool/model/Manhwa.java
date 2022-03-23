@@ -9,13 +9,13 @@ import lombok.Data;
 
 @Entity
 @Data
-public class ManhwaBoard {
+public class Manhwa {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String title;
-	private String content;
+	private String title_image;
 	
 	public Long getId() {
 		return id;
@@ -29,10 +29,10 @@ public class ManhwaBoard {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getContent() {
-		return content;
+	public String getTitle_image() {
+		return title_image;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setTitle_image(String Title_image) {
+		this.title_image = Title_image;
 	}
 }
