@@ -15,17 +15,19 @@ import javax.imageio.ImageIO;
 
 public class Zip_tools {
 	
-	public static byte[] Zip_tools_byte() throws IOException {
-		ZipFile zip = new ZipFile("C:/Users/pluie/Desktop/milanorToolSidefile/manhwa/의룡 -Team Medical Dragon-/medical_dragon01.zip");
-		byte[] image = null;
-		for (Enumeration e = zip.entries(); e.hasMoreElements(); ) {
-	        ZipEntry entry = (ZipEntry) e.nextElement();
-	        
-	        if (!entry.isDirectory()) {
-	        		image = getImage(zip.getInputStream(entry));
-	        }
+	public static byte[] Zip_tools_byte(String path) throws IOException {
+		try (
+				ZipFile zip = new ZipFile(path)) {
+				byte[] image = null;
+				for (Enumeration<?> e = zip.entries(); e.hasMoreElements(); ) {
+			    ZipEntry entry = (ZipEntry) e.nextElement();
+			    
+				    if (!entry.isDirectory()) {
+				    		image = getImage(zip.getInputStream(entry));
+				    }
+				}
+			return image;
 		}
-		return image;
 	}
 	
 //	public static String Zip_tools_text () throws IOException {
@@ -52,7 +54,7 @@ public class Zip_tools {
 //	}
 	
 	//image 파일 컨트롤
-	private static byte[] getImage(InputStream in)  {
+	public static byte[] getImage(InputStream in)  {
 	    try {
 	        BufferedImage image = ImageIO.read(in); //just checking if the InputStream belongs in fact to an image
 	        ByteArrayOutputStream baos = new ByteArrayOutputStream();

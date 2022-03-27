@@ -7,47 +7,74 @@ html, body {
   height: 100%;
 }
 
-html, body > .maincontainer {
-  padding: 0px 60px;
-  background: rgba(10, 13, 24, 0.753);
+.color_container {
+  height:100%;
+  height: 93%;
+  padding-left: 60px;
+  padding-right: 60px;
+  background: rgba(7, 50, 51, 0.753);
 }
 
-.container > .manhwa { 
+.main_container {
+  width: 100%;
+  height: 100%;
+  background: whitesmoke;
+}
+
+.tab_container { 
+  width: 65%;
+  height: 88%;
   margin-top: 100px;
-  margin-left: 30px;
+  margin-left: 40px;
+  margin-right: 20px;
   text-align: center;
   float:left;
 }
-.container > .manhwa > .font {
-  width:80px; 
-  height:40px;
-  margin-left:140px;
+.tab-content { 
+  width: 100%;
+  height: 88%;
+  border: 1px solid rgb(223, 220, 220); 
 }
-.container > .manhwa > .contents { 
+.tab-content-top { 
+  width: 100%;
+  height: 90%;
+  border: 1px solid rgb(223, 220, 220); 
+}
+.tab-content-bottom-out { 
+  width: 100%;
+  height: 80px;
+  text-align: center;
+}
+.tab-content-bottom-in { 
+  margin-top: 13px;
+  display: inline-block;
+}
+
+.contents { 
   width:160px; 
   height:190px;
-  margin:15px 35px 15px 15px;
+  margin:45px 10px 25px 30px;
   border: 1px solid black; 
   float:left;
 }
-.container > .manhwa > .contents > .image_thumbnail { 
+.contents > .image_thumbnail { 
   position: relative;
   width: 100%;
   height: 100%;
   object-fit: fill;
 }
-.container > .manhwa > .contents > .content {
+.contents > .content {
   position: absolute;
   margin-left: -1px;
   margin-top: -39px;
 }
-.container > .manhwa > .contents > .content > .border {
+.contents > .content > .border {
   height: 40px;
   width: 160px;
   background-color: black;
   opacity: 0.8;
 }
-.container > .manhwa > .contents > .content > .border > .titleCss {
+.contents > .content > .border > .titleCss {
   color: whitesmoke;
   margin-top: 7px;
   padding-left: 8px;
@@ -58,41 +85,9 @@ html, body > .maincontainer {
   text-overflow: ellipsis;
 }
 
-.container > .video { 
-  width:360px; 
-  height:100%;
-  margin-top: 100px;
+.footer {
   text-align: center;
-  float:left;
-}
-.container > .video > .font {
-  width:80px; 
-  height:40px;
-  margin-left:140px;
-}
-.container > .video > .contents { 
-  width:160px; 
-  height:190px;
-  margin:10px 10px 10px 10px;
-  border: 1px solid red; 
-  float:left;
-}
-.container > .game { 
-  width:360px; 
-  height:100%;
-  margin-top: 100px;
-  text-align: center;
-  float:left;
-}
-.container > .game > .font {
-  width:80px; 
-  height:40px;
-  margin-left:140px;
-}
-.container > .game > .contents { 
-  width:160px; 
-  height:190px;
-  margin:10px 10px 10px 10px;
-  border: 1px solid red; 
-  float:left;
+  width: 100%;
+  height: 64px;
+  border: 1px solid black; 
 }
