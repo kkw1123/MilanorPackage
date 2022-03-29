@@ -27,7 +27,7 @@ public class HomeController {
 	private ManhwaRepository boardRepository;
 	
 	@GetMapping("/")
-	public String index(Model model, @PageableDefault(size = 10) Pageable pageable) throws IOException {
+	public String index(Model model, @PageableDefault(size = 12) Pageable pageable) throws IOException {
 		Page<Manhwa> manhwa = boardRepository.findAll(pageable);
 		int imageNum = 0;
 		

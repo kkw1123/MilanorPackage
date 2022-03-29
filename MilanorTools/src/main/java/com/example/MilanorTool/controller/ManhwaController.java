@@ -18,7 +18,7 @@ public class ManhwaController {
 	@Autowired
 	private ManhwaRepository manhwaRepository;
 	
-	@GetMapping("/list")
+	@GetMapping("")
 	public String list(Model model) {
 		List<Manhwa> manhwa = manhwaRepository.findAll();
 		model.addAttribute("manhwa", manhwa);
@@ -28,5 +28,10 @@ public class ManhwaController {
 	@GetMapping("/form")
 	public String form(Model model) {
 		return "manhwa/form";
+	}
+	
+	@GetMapping("/detail")
+	public String detail(Model model) {
+		return "manhwa/detail";
 	}
 }
