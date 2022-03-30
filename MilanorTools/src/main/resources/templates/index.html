@@ -41,7 +41,8 @@
                                                 <p class="category d-block">comics &mdash; 저장된 총 갯수 : <span th:text="${manhwa.totalElements}"></span> 건</p>
                                                 
                                                 <div class="content-block d-block mb-2">
-                                                    <div class="contents" th:each="manhwa : ${manhwa}" onclick="location.href='/manhwa/detail';">
+                                                    <!-- onclick 연결은 리터럴로 해야함, $안의 내용을 읽는게 아니라 글자 자체를 읽어버림 -->
+                                                    <div class="contents" th:each="manhwa : ${manhwa}" th:onclick="'location.href=\''+@{'/manhwa/detail/'+${manhwa.id}}+'\''">
                                                         <img class="image_thumbnail" th:src="'data:image/jpg;base64,'+${image__${manhwaStat.index}__}">
                                                         <div class="content">
                                                             <div class="border">

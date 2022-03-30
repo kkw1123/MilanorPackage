@@ -19,6 +19,7 @@ public class Manhwa {
 	private String title;
 	private int volumes;
 	private String title_image;
+	private String content_path;
 	private Date start_yr_mon;
 	private Date end_yr_mon;
 	private Date cre_date;
@@ -71,5 +72,11 @@ public class Manhwa {
 	}
 	public void setUp_date(Date up_date) {
 		this.up_date = up_date;
+	}
+	public String getContent_path() {
+		return content_path;
+	}
+	public void setContent_path(String content_path) {
+		this.content_path = content_path;
 	}
 }

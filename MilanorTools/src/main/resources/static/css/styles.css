@@ -11379,8 +11379,8 @@ body {
     text-align: center;
   }
   .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content .content-block {
-    width:90%;
-    margin-left: 125px;
+    width:85%;
+    margin-left: 175px;
   }
   .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content:before {
     display: none;
@@ -11756,7 +11756,7 @@ height: 100%; }
 .contents { 
   width:160px; 
   height:190px;
-  margin:5px 5px 45px 32px;
+  margin:10px 10px 50px 32px;
   border: 1px solid black; 
   float:left;
   cursor: pointer;
