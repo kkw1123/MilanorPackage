@@ -2,12 +2,10 @@ package com.example.MilanorTool.utils;
 
 import java.awt.image.BufferedImage;
 import java.io.BufferedInputStream;
-import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -23,8 +21,7 @@ import com.example.MilanorTool.model.Contents;
 
 
 public class Zip_tools {
-	//컨텐츠 다건
-	//이미지 컨텐츠 다건
+	// 이미지 컨텐츠 다건
 	public static List<Contents> Zip_tools_bytes(String path) throws IOException {
 		List<Contents> allContents = new ArrayList<Contents>();
 		byte[] image = null;
@@ -49,7 +46,7 @@ public class Zip_tools {
 		return allContents;
 	}
 	
-	//컨텐츠 단건
+	// 이미지 컨텐츠 단건
 	public static byte[] Zip_tools_byte(String path) throws IOException {
 		try (
 				ZipFile zip = new ZipFile(path)) {
@@ -64,6 +61,7 @@ public class Zip_tools {
 		}
 	}
 	
+	// 텍스트 와 이미지 컨텐츠 함께 쓸 때 예제
 //	public static String Zip_tools_text () throws IOException {
 //		ZipFile zip = new ZipFile("C:/Users/pluie/Desktop/milanorToolSidefile/manhwa/의룡 -Team Medical Dragon-/medical_dragon01.zip");
 //	
