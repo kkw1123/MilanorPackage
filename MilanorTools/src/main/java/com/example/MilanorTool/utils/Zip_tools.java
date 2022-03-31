@@ -1,38 +1,64 @@
 package com.example.MilanorTool.utils;
 
 import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+import java.util.zip.ZipInputStream;
 
 import javax.imageio.ImageIO;
 
-import org.apache.commons.io.IOUtils;
-import org.springframework.data.domain.Page;
-
-import com.example.MilanorTool.model.Manhwa;
+import com.example.MilanorTool.model.Contents;
 
 
 public class Zip_tools {
+	//컨텐츠 다건
+	//이미지 컨텐츠 다건
+	public static List<Contents> Zip_tools_bytes(String path) throws IOException {
+		List<Contents> allContents = new ArrayList<Contents>();
+		byte[] image = null;
+		ZipEntry ze = null;
+
+		try (InputStream input = new FileInputStream(path)) {
+			ZipInputStream zipInputStream = new ZipInputStream(new BufferedInputStream(input), Charset.forName("UTF-8"));
+			while ((ze = zipInputStream.getNextEntry()) != null) {
+				Contents content = new Contents();
+				
+				if (!ze.isDirectory()) {
+		    		image = getImage(zipInputStream);
+			    }
+				content.setContentSource(Base64.getEncoder().encodeToString(image));
+	    		allContents.add(content);
+			}
+			
+			zipInputStream.closeEntry();
+		    input.close();
+		}
+		
+		return allContents;
+	}
+	
+	//컨텐츠 단건
 	public static byte[] Zip_tools_byte(String path) throws IOException {
 		try (
 				ZipFile zip = new ZipFile(path)) {
-				byte[] image = null;
-				for (Enumeration<?> e = zip.entries(); e.hasMoreElements(); ) {
-			    ZipEntry entry = (ZipEntry) e.nextElement();
-			    
-				    if (!entry.isDirectory()) {
-				    		image = getImage(zip.getInputStream(entry));
-				    }
+					byte[] image = null;
+					for (Enumeration<?> e = zip.entries(); e.hasMoreElements(); ) {
+					    ZipEntry entry = (ZipEntry) e.nextElement();
+					    if (!entry.isDirectory()) {
+					    		image = getImage(zip.getInputStream(entry));
+					    }
 				}
 			return image;
 		}
@@ -76,20 +102,20 @@ public class Zip_tools {
 	}
 	
 	//text 파일 컨트롤
-	private  static StringBuilder getTxtFiles(InputStream in)  {
-	    StringBuilder out = new StringBuilder();
-	    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-	    String line;
-	    try {
-	        while ((line = reader.readLine()) != null) {
-	            out.append(line);
-	        }
-	    } catch (IOException e) {
-	        // do something, probably not a text file
-	        e.printStackTrace();
-	    }
-	    return out;
-	}
+//	private  static StringBuilder getTxtFiles(InputStream in)  {
+//	    StringBuilder out = new StringBuilder();
+//	    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+//	    String line;
+//	    try {
+//	        while ((line = reader.readLine()) != null) {
+//	            out.append(line);
+//	        }
+//	    } catch (IOException e) {
+//	        // do something, probably not a text file
+//	        e.printStackTrace();
+//	    }
+//	    return out;
+//	}
 }
 
 

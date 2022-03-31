@@ -16,23 +16,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.example.MilanorTool.model.Manhwa;
-import com.example.MilanorTool.repository.ManhwaRepository;
+import com.example.MilanorTool.model.Comics;
+import com.example.MilanorTool.repository.ComicsRepository;
 import com.example.MilanorTool.utils.Zip_tools;
 
 @Controller
 public class HomeController {
 	
 	@Autowired
-	private ManhwaRepository boardRepository;
+	private ComicsRepository boardRepository;
 	
 	@GetMapping("/")
 	public String index(Model model, @PageableDefault(size = 12) Pageable pageable) throws IOException {
-		Page<Manhwa> manhwa = boardRepository.findAll(pageable);
+		Page<Comics> comics = boardRepository.findAll(pageable);
 		int imageNum = 0;
 		
 		//메인 이미지 호출
-		for (Manhwa list: manhwa) {
+		for (Comics list: comics) {
 			File f = new File(list.getTitle_image());
 			//System.out.println("저장소 연결여부 체크 = " + f.exists());
 			if(f.exists()) {
@@ -43,20 +43,20 @@ public class HomeController {
 			}
 			imageNum++;
 		}
-		int startPage = Math.max(1, manhwa.getPageable().getPageNumber()-1);
-		int endPage = Math.min(manhwa.getTotalPages(), manhwa.getPageable().getPageNumber()+3);
+		int startPage = Math.max(1, comics.getPageable().getPageNumber()-1);
+		int endPage = Math.min(comics.getTotalPages(), comics.getPageable().getPageNumber()+3);
 		
 		//페이지 갯수 조정 로직
-		if(manhwa.getPageable().getPageNumber() == 0 || manhwa.getPageable().getPageNumber() == 1) {
+		if(comics.getPageable().getPageNumber() == 0 || comics.getPageable().getPageNumber() == 1) {
 			endPage = 5;
-			if(manhwa.getTotalPages() < 5) {
-				endPage = Math.min(manhwa.getTotalPages(), manhwa.getPageable().getPageNumber()+3);
+			if(comics.getTotalPages() < 5) {
+				endPage = Math.min(comics.getTotalPages(), comics.getPageable().getPageNumber()+3);
 			}
 		}
 		
 		model.addAttribute("startPage", startPage);
 		model.addAttribute("endPage", endPage);
-		model.addAttribute("manhwa", manhwa);
+		model.addAttribute("comics", comics);
 		
 		return "index";
 	}
