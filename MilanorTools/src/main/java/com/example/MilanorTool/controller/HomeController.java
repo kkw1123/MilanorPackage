@@ -24,11 +24,12 @@ import com.example.MilanorTool.utils.Zip_tools;
 public class HomeController {
 	
 	@Autowired
-	private ComicsRepository boardRepository;
+	private ComicsRepository comicsRepository;
 	
+	//메인화면
 	@GetMapping("/")
 	public String index(Model model, @PageableDefault(size = 12) Pageable pageable) throws IOException {
-		Page<Comics> comics = boardRepository.findAll(pageable);
+		Page<Comics> comics = comicsRepository.findAll(pageable);
 		int imageNum = 0;
 		
 		//메인 이미지 호출
@@ -46,7 +47,7 @@ public class HomeController {
 		int startPage = Math.max(1, comics.getPageable().getPageNumber()-1);
 		int endPage = Math.min(comics.getTotalPages(), comics.getPageable().getPageNumber()+3);
 		
-		//페이지 갯수 조정 로직
+		//페이지 갯수 조정 로직(무조건 5개씩만 나오게)
 		if(comics.getPageable().getPageNumber() == 0 || comics.getPageable().getPageNumber() == 1) {
 			endPage = 5;
 			if(comics.getTotalPages() < 5) {

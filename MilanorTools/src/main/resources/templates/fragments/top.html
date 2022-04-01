@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <body>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" th:fragment="top">
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="/">아카이브</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        
+        <span sec:authorize="isAuthenticated()" style="color:white; margin-left: 20px;" sec:authentication="name">사용자</span>
+        <span sec:authorize="isAuthenticated()" style="color:white; margin-left: 20px;" sec:authentication="principal.authorities">권한</span>
+
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
@@ -18,10 +22,18 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <!-- <li><a class="dropdown-item" href="#!">Settings</a></li> -->
+                    <li><a class="dropdown-item" href="#!">활동이력</a></li>
                     <li><hr class="dropdown-divider" /></li>
-                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+
+                    <li sec:authorize="!isAuthenticated()">
+                        <a class="dropdown-item" th:href="@{/account/login}">로그인</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+                        <form th:action="@{/logout}" method="POST">
+                            <button class="dropdown-item" type="submit">로그아웃</button>
+                        </form>
+                    </li>
                 </ul>
             </li>
         </ul>

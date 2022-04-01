@@ -25,19 +25,19 @@ public class ComicsController {
 	private ComicsRepository ComicsRepository;
 	
 	@GetMapping("/list")
-	public String list(Model model) {
+	public String comicsList(Model model) {
 		List<Comics> comics = ComicsRepository.findAll();
 		model.addAttribute("comics", comics);
 		return "comics/list";
 	}
 	
 	@GetMapping("/form")
-	public String form(Model model) {
+	public String comicsForm(Model model) {
 		return "comics/form";
 	}
 	
 	@GetMapping("/detail/{id}")
-	public String detail(@PathVariable("id") String id, Model model) throws IOException {
+	public String comicsDetail(@PathVariable("id") String id, Model model) throws IOException {
 		List<Comics> comics = ComicsRepository.findById(id);
 		List<Contents> contentImage = new ArrayList<Contents>();
 		String fullPath = comics.get(0).getContent_path();

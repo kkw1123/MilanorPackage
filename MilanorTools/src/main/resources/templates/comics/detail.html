@@ -11,8 +11,14 @@
             
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="test" th:each="content : ${contents}">
-                        <img class="content_image" th:src="'data:content/jpg;base64,'+${content.contentSource}">
+                    <div class="container-fluid px-4">
+                        <div class="card">
+                            <div class="imageBlockContainer">
+                                <div class="imageBlock" th:each="content : ${contents}">
+                                    <img class="contentImage" th:src="'data:content/jpg;base64,'+${content.contentSource}">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </main>
 
