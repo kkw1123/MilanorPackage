@@ -65,8 +65,12 @@
                 </div>
             </div>
             <div class="sb-sidenav-footer">
-                <div class="small">Logged in as:</div>
-                Start Bootstrap
+                <div class="small">
+                    Logged in as:
+                    <span sec:authorize="isAuthenticated()" style="color:white; margin-left: 20px;" sec:authentication="name">사용자</span>
+                </div>
+                <!-- 나중에 -->
+                <!-- <div sec:authorize="isAuthenticated()" style="color:white; text-align: center;" sec:authentication="principal.authorities">권한</div> -->
             </div>
         </nav>
     </div>

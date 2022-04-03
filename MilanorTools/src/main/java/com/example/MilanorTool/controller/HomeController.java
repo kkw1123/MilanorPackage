@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.MilanorTool.model.Comics;
 import com.example.MilanorTool.repository.ComicsRepository;
-import com.example.MilanorTool.utils.Zip_tools;
+import com.example.MilanorTool.utils.ZipTools;
 
 @Controller
 public class HomeController {
@@ -38,7 +38,7 @@ public class HomeController {
 			//System.out.println("저장소 연결여부 체크 = " + f.exists());
 			if(f.exists()) {
 				String titleImagePath = list.getTitle_image();
-				InputStream inputStream = new ByteArrayInputStream(Zip_tools.Zip_tools_byte(titleImagePath));
+				InputStream inputStream = new ByteArrayInputStream(ZipTools.Zip_tools_byte(titleImagePath));
 				byte[] byteArray = IOUtils.toByteArray(inputStream);
 				model.addAttribute("image"+imageNum, Base64.getEncoder().encodeToString(byteArray));
 			}

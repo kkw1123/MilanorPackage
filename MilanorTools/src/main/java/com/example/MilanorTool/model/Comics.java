@@ -21,7 +21,6 @@ public class Comics {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String id;
 	private String title;
-	private int volumes;
 	private String title_image;
 	private String content_path;
 	private Date start_yr_mon;

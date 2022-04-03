@@ -12,10 +12,22 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <div class="card">
-                            <div class="imageBlockContainer">
-                                <div class="imageBlock" th:each="content : ${contents}">
-                                    <img class="contentImage" th:src="'data:content/jpg;base64,'+${content.contentSource}">
+                        <div class="card" th:each="comics : ${comics}">
+                            <div class="card-header">
+                                <div class="card-header-left" th:text="${comics.title}+'&nbsp&nbsp'+${volumes}">제목</div>
+                                <div class="card-header-right">
+                                    <select class="form-select" th:onchange="if(this.value) location.href='?itemId='+(this.value)">
+                                        <!-- <option selected>Open this select menu</option> -->
+                                        <option th:each="items : ${items}" th:value="${items.id}" 
+                                                th:text="${items.name}" th:selected="${items.id} == ${itemId}" />
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="imageBlockContainer">
+                                    <div class="imageBlock mt-2" th:each="content : ${contents}">
+                                        <img class="contentImage" th:src="'data:content/jpg;base64,'+${content.contentSource}">
+                                    </div>
                                 </div>
                             </div>
                         </div>

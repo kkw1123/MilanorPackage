@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.zip.ZipEntry;
@@ -20,13 +21,13 @@ import javax.imageio.ImageIO;
 import com.example.MilanorTool.model.Contents;
 
 
-public class Zip_tools {
+public class ZipTools {
 	// 이미지 컨텐츠 다건
 	public static List<Contents> Zip_tools_bytes(String path) throws IOException {
 		List<Contents> allContents = new ArrayList<Contents>();
 		byte[] image = null;
 		ZipEntry ze = null;
-
+		
 		try (InputStream input = new FileInputStream(path)) {
 			ZipInputStream zipInputStream = new ZipInputStream(new BufferedInputStream(input), Charset.forName("UTF-8"));
 			while ((ze = zipInputStream.getNextEntry()) != null) {
@@ -35,13 +36,15 @@ public class Zip_tools {
 				if (!ze.isDirectory()) {
 		    		image = getImage(zipInputStream);
 			    }
+				content.setContentName(ze.getName());
 				content.setContentSource(Base64.getEncoder().encodeToString(image));
-	    		allContents.add(content);
+	    			allContents.add(content);
 			}
 			
 			zipInputStream.closeEntry();
 		    input.close();
 		}
+		Collections.sort(allContents); // 파일이름 순으로 정렬
 		
 		return allContents;
 	}

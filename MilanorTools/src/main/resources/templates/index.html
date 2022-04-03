@@ -42,7 +42,8 @@
                                                 
                                                 <div class="content-block d-block mb-2">
                                                     <!-- onclick 연결은 리터럴로 해야함, $안의 내용을 읽는게 아니라 글자 자체를 읽어버림 -->
-                                                    <div class="contents" th:each="comics : ${comics}" th:onclick="'location.href=\''+@{'/comics/detail/'+${comics.id}}+'\''">
+                                                    <!-- 또한 itemId 나중에 바로가기 또는 책갈피를 추가할 것 -->
+                                                    <div class="contents" th:each="comics : ${comics}" th:onclick="'location.href=\''+@{'/comics/detail/'+${comics.id}}+'?itemId=1\''">
                                                         <img class="image_thumbnail" th:src="'data:image/jpg;base64,'+${image__${comicsStat.index}__}">
                                                         <div class="content">
                                                             <div class="border">
