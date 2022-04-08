@@ -7,7 +7,18 @@ import org.springframework.boot.test.context.SpringBootTest;
 class MilanorToolApplicationTests {
 
 	@Test
-	void contextLoads() {
+	public void testA() {
+		System.out.println("A");
 	}
 
+	@Test
+	public void testB() {
+		System.out.println("B");
+	}
+	
+	@Test
+	public void testC() {
+		System.out.println("C");
+	}
+	
 }
