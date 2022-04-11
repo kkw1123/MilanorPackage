@@ -38,6 +38,7 @@ public class ComicsController {
 		return "comics/form";
 	}
 	
+	@SuppressWarnings("unused")
 	@GetMapping("/detail/{id}")
 	public String comicsDetail(@PathVariable("id") String id, Model model, int itemId) throws IOException {
 		List<Comics> comics = ComicsRepository.findById(id);
@@ -51,6 +52,11 @@ public class ComicsController {
 		//전체 항목 조회 및 출력
 		File dir = new File(fullPath);
 		File[] files = dir.listFiles();
+		
+		if(files == null) {
+			return "404";
+		}
+		
 		Arrays.sort(files); // 파일이름 순 정렬
 		
 		for(File lst : files) {
