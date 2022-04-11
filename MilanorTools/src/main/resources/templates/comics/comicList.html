@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
     <head th:replace="fragments/header :: head('아카이브')" />
 
     <body class="sb-nav-fixed">
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div id="footScript" th:replace="fragments/footScript :: footScript" />
+        <div id="footScript" th:replace="account/downFootScript :: footScript" />
         
     </body>
 </html>

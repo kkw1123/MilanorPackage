@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
     <head th:replace="fragments/header :: head('아카이브')" />
 
     <body class="sb-nav-fixed">
@@ -28,10 +28,10 @@
                                             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                                                 <a class="nav-item nav-link active" id="nav-comics-tab" data-toggle="tab" href="#nav-comics" role="tab" aria-controls="nav-Comics" aria-selected="true">만화</a>
                                                 <a class="nav-item nav-link" id="nav-music-tab" data-toggle="tab" href="#nav-music" role="tab" aria-controls="nav-music" aria-selected="false">음악</a>
-                                                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
-                                                <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false">About</a>
-                                                <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false">About</a>
-                                                <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false">About</a>
+                                                <a class="nav-item nav-link" id="nav-movie-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">영화</a>
+                                                <a class="nav-item nav-link" id="nav-anime-tab" data-toggle="tab" href="#nav-anime" role="tab" aria-controls="nav-about" aria-selected="false">애니</a>
+                                                <a class="nav-item nav-link" id="nav-drama-tab" data-toggle="tab" href="#nav-drama" role="tab" aria-controls="nav-about" aria-selected="false">드라마</a>
+                                                <a class="nav-item nav-link" id="nav-game-tab" data-toggle="tab" href="#nav-game" role="tab" aria-controls="nav-about" aria-selected="false">게임</a>
                                             </div>
                                         </nav>
 
@@ -74,12 +74,19 @@
                                             <div class="tab-pane fade" id="nav-music" role="tabpanel" aria-labelledby="nav-music-tab">
                                             Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
                                             </div>
-                                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                            <div class="tab-pane fade" id="nav-movie" role="tabpanel" aria-labelledby="nav-movie-tab">
                                             Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
                                             </div>
-                                            <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                                            <div class="tab-pane fade" id="nav-anime" role="tabpanel" aria-labelledby="nav-anime-tab">
                                             Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
                                             </div>
+                                            <div class="tab-pane fade" id="nav-drama" role="tabpanel" aria-labelledby="nav-drama-tab">
+                                            Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                                            </div>
+                                            <div class="tab-pane fade" id="nav-game" role="tabpanel" aria-labelledby="nav-game-tab">
+                                            Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                                            </div>
+                                                
                                         </div>
                                     </div>
                                 </div>
@@ -91,14 +98,14 @@
                                 <div class="card bg-secondary text-white mb-3">
                                     <div class="card-body">만화 바로가기</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">자세히</a>
+                                        <a class="small text-white stretched-link" href="#" th:href="@{/comics/comicList}">자세히</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-2 col-md-6">
                                 <div class="card bg-primary text-white mb-3">
-                                    <div class="card-body">애니 바로가기</div>
+                                    <div class="card-body">음악 바로가기</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">자세히</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -116,7 +123,7 @@
                             </div>
                             <div class="col-xl-2 col-md-6">
                                 <div class="card bg-success text-white mb-3">
-                                    <div class="card-body">노래 바로가기</div>
+                                    <div class="card-body">애니 바로가기</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">자세히</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -152,6 +159,6 @@
         </div>
 
         <div id="footScript" th:replace="fragments/footScript :: footScript" />
-        
+
     </body>
 </html>

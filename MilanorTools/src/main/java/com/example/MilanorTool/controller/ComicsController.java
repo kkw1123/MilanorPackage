@@ -26,11 +26,11 @@ public class ComicsController {
 	@Autowired
 	private ComicsRepository ComicsRepository;
 	
-	@GetMapping("/list")
+	@GetMapping("/comicList")
 	public String comicsList(Model model) {
 		List<Comics> comics = ComicsRepository.findAll();
 		model.addAttribute("comics", comics);
-		return "comics/list";
+		return "comics/comicList";
 	}
 	
 	@GetMapping("/form")
@@ -38,7 +38,6 @@ public class ComicsController {
 		return "comics/form";
 	}
 	
-	@SuppressWarnings("unused")
 	@GetMapping("/detail/{id}")
 	public String comicsDetail(@PathVariable("id") String id, Model model, int itemId) throws IOException {
 		List<Comics> comics = ComicsRepository.findById(id);

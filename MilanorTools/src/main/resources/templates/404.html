@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
     <head th:replace="fragments/header :: head('정보를 찾을 수 없습니다.')" />
 
     <body>
@@ -12,7 +12,7 @@
                                 <div class="text-center mt-4">
                                     <img class="mb-4 img-error" src="../../assets/img/mussuk.jpg" />
                                     <p class="lead">해당 정보를 찾을 수 없습니다.</p>
-                                    <a href="../../">
+                                    <a href="../../" th:href="@{/}">
                                         <i class="fas fa-arrow-left me-1"></i>
                                         메인화면으로 돌아가기
                                     </a>
